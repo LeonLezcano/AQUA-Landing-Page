@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AQUA 2026 — Plataforma Enterprise para Embotelladoras de Agua, Sifonerías y Dispensers</title>
+  <meta name="description" content="Automatizá tu planta embotelladora de agua y sifonería. Conectamos clientes, piso de planta, logística de choferes y facturación AFIP en un solo sistema en tiempo real.">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AQUA 2026 — Tu embotelladora sin planillas ni mensajes de WhatsApp">
+  <meta property="og:description" content="Software integral para plantas de agua y sifón. Portal de clientes, control de calidad SENASA, optimizador de rutas 2-Opt y cobros con QR.">
+  <meta property="og:image" content="/icon-512.svg">
+  <meta name="theme-color" content="#00C2FF">
+
+  <!-- PWA & Fonts -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/icon-192.svg">
+  <link rel="apple-touch-icon" href="/icon-192.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar no-print">
+    <div class="container nav-inner">
+      <a href="#" class="brand-logo" aria-label="AQUA 2026 Inicio">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="256" cy="256" r="220" stroke="url(#logoGrad)" stroke-width="24" opacity="0.4"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00C2FF"/>
+              <stop offset="100%" stop-color="#0072FF"/>
+            </linearGradient>
+          </defs>
+          <path d="M256 120 C 256 120, 160 240, 160 310 A 96 96 0 0 0 352 310 C 352 240, 256 120, 256 120 Z" fill="url(#logoGrad)"/>
+        </svg>
+        <span>AQUA <small class="grad-text">2026</small></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#proceso">Cómo Funciona</a></li>
+          <li><a href="#problemas">El Problema</a></li>
+          <li><a href="#modulos">Módulos</a></li>
+          <li><a href="#roi">Calculadora ROI</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#faq">Preguntas</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contacto" class="btn-primary" data-lead-cta>Solicitar Demo</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Plataforma Enterprise · Para Embotelladoras de Agua y Sifonerías</span>
+        <h1>Tu embotelladora no puede depender de <span class="grad-text">planillas ni WhatsApp.</span></h1>
+        <p class="hero-sub">
+          Conectamos tus clientes, el piso de planta industrial, la logística de choferes en calle y la facturación fiscal en una sola plataforma en tiempo real. 
+          <strong>Eliminá el 100% de los errores de carga y recuperá tus envases perdidos.</strong>
+        </p>
+        
+        <div class="hero-ctas">
+          <a href="#contacto" class="btn-primary">Quiero Automatizar mi Planta</a>
+          <a href="#proceso" class="btn-secondary">Ver el Sistema en Vivo ↓</a>
+        </div>
+
+        <div class="hero-badges">
+          <span>✓ +120.000 Bidones gestionados/mes</span>
+          <span>✓ 100% Offline-First para Choferes</span>
+          <span>✓ Normativa SENASA & CAA Art. 982</span>
+          <span>✓ QR Dinámico Mercado Pago</span>
+        </div>
+
+        <!-- Interactive Flow Simulator Card (Glidex Reverse Engineered) -->
+        <div class="flow-card" id="proceso">
+          <div class="flow-card-header">
+            <span>Proceso Industrial Conectado · De Punta a Punta</span>
+            <div class="live-indicator">Funcionando en Tiempo Real</div>
+          </div>
+
+          <div class="flow-stage" id="flow-container">
+            <svg class="flow-wire-svg" id="wire-svg" aria-hidden="true"></svg>
+            
+            <div class="flow-node node-active" data-node="0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              <span>1. Cliente (Portal 2.0)</span>
+            </div>
+
+            <div class="flow-node" data-node="1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              <span>2. Planta & Calidad</span>
+            </div>
+
+            <div class="flow-node" data-node="2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+              </svg>
+              <span>3. Logística & Chofer</span>
+            </div>
+
+            <div class="flow-node" data-node="3">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              <span>4. Facturación & AFIP</span>
+            </div>
+          </div>
+
+          <div class="flow-log" id="flow-log" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="section-pad" id="problemas">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Puntos Críticos de Fricción</span>
+          <h2>Los 6 problemas que frenan a tu embotelladora todos los días</h2>
+          <p>La mayoría de las distribuidoras de agua conviven con estas pérdidas invisibles asumiéndolas como "parte del negocio".</p>
+        </div>
+
+        <div class="problems-grid">
+          <div class="problem-card">
+            <b>1. Planillas Manuales de Excel</b>
+            <p>Se copian pedidos a mano, se borran fórmulas por error y la información nunca coincide con el stock real del depósito.</p>
+          </div>
+          <div class="problem-card">
+            <b>2. Caos en WhatsApp</b>
+            <p>Clientes que piden agua por chat a cualquier hora, mensajes que quedan sin responder y choferes con direcciones equivocadas.</p>
+          </div>
+          <div class="problem-card">
+            <b>3. Fuga Constante de Bidones</b>
+            <p>Envases retornables de 20L que nunca vuelven. Las plantas pierden entre el 2% y 4% de su capital de bidones todos los meses.</p>
+          </div>
+          <div class="problem-card">
+            <b>4. Rutas Desordenadas</b>
+            <p>Choferes que cruzan la ciudad de punta a punta, quemando combustible innecesario y entregando pedidos fuera de horario.</p>
+          </div>
+          <div class="problem-card">
+            <b>5. Diferencias en la Caja y Morosidad</b>
+            <p>Cuadre de dinero en efectivo al final del día que tarda más de 2 horas y clientes con saldos vencidos difíciles de cobrar.</p>
+          </div>
+          <div class="problem-card">
+            <b>6. Cero Trazabilidad Bromatológica</b>
+            <p>Registros en papel de pastillas de cloro, ozono y mantenimiento que no resisten una inspección sanitaria formal de SENASA.</p>
+          </div>
+        </div>
+
+        <!-- Before vs After -->
+        <div class="ba-container">
+          <div class="ba-card ba-before">
+            <h3 style="color: #F87171;">Sin AQUA (Operación Tradicional)</h3>
+            <ul>
+              <li>❌ Pedidos anotados en papeles y chats de WhatsApp.</li>
+              <li>❌ Rutas armadas "a ojo" por el chofer.</li>
+              <li>❌ Pérdida constante de bidones retornables sin comodato.</li>
+              <li>❌ Arqueo de camión de 2 horas con faltantes de dinero.</li>
+              <li>❌ Cobranza mensual lenta y manual en calle.</li>
+            </ul>
+          </div>
+
+          <div class="ba-card ba-after">
+            <h3 style="color: #10B981;">Con AQUA 2026 (Plataforma Conectada)</h3>
+            <ul>
+              <li>✓ Portal Web 2.0 donde los clientes piden solos en 3 clics.</li>
+              <li>✓ Optimizador matemático TSP 2-Opt con ventanas horarias.</li>
+              <li>✓ Trazabilidad por código QR de bidones y dispensers frío-calor.</li>
+              <li>✓ Arqueo Express de Camión en 3 minutos exactos.</li>
+              <li>✓ Cobro con QR Mercado Pago y débito automático por CBU/Tarjeta.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="section-pad" id="modulos" style="background: rgba(13, 21, 39, 0.4);">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Arquitectura Modular Integral</span>
+          <h2>Una solución de extremo a extremo pensada para plantas reales</h2>
+          <p>No adaptamos tu fábrica a un software genérico de comercio: construimos cada módulo para la operativa real de agua y soda.</p>
+        </div>
+
+        <div class="modules-grid">
+          <div class="module-card">
+            <div class="module-icon">📱</div>
+            <h3>Portal de Clientes 2.0</h3>
+            <p>Tus clientes hacen pedidos de bidones y recargas desde su celular 24/7 sin instalar apps. Consultan su saldo de cuenta corriente y descargan sus facturas.</p>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon">🏭</div>
+            <h3>Piso de Planta & Calidad</h3>
+            <p>Control bromatológico completo: checklist pre-jornada, medición de ozono (Premium/Light), historial unificado de pastillas de cloro y métricas de rendimiento BPH.</p>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon">🚚</div>
+            <h3>Ruteador 2-Opt & Tracking</h3>
+            <p>Algoritmo de optimización que reduce hasta 22% los km recorridos. App de choferes 100% Offline-First para sótanos o rutas sin señal con radar GPS de proximidad.</p>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon">❄️</div>
+            <h3>Dispensers & FSM Técnico</h3>
+            <p>Seguimiento de contratos de comodato y alquiler. Alertas automáticas de sanitización in-situ cada 180 días según Código Alimentario Argentino (Art. 982).</p>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon">💳</div>
+            <h3>Mercado Pago & Débitos</h3>
+            <p>Cobro dinámico con QR en el camión sin terminales costosas. Cobranza recurrente de abonos el día 1 de cada mes mediante CBU bancario o tarjeta de crédito.</p>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon">💬</div>
+            <h3>WhatsApp Automático</h3>
+            <p>Disparo automático de avisos al cliente cuando el camión está a menos de 500 metros de su puerta para que tenga listos los bidones vacíos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="section-pad" id="roi">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Calculadora de Impacto Financiero</span>
+          <h2>¿Cuánto dinero pierde tu planta cada mes en ineficiencias?</h2>
+          <p>Mueve los controles según la dimensión de tu flota y mirá el ahorro mensual proyectado con AQUA.</p>
+        </div>
+
+        <div class="roi-box">
+          <div class="roi-controls">
+            <div class="slider-group">
+              <label for="slider-bottles">Bidones repartidos por día: <span id="label-bottles">500</span></label>
+              <input type="range" id="slider-bottles" min="100" max="3000" step="50" value="500">
+            </div>
+
+            <div class="slider-group">
+              <label for="slider-trucks">Camiones en calle: <span id="label-trucks">3</span></label>
+              <input type="range" id="slider-trucks" min="1" max="15" step="1" value="3">
+            </div>
+          </div>
+
+          <div class="roi-results-grid">
+            <div class="roi-metric">
+              <b id="metric-monthly">$ 2.850.000</b>
+              <span>Ahorro Operativo Mensual Estimado</span>
+            </div>
+            <div class="roi-metric">
+              <b id="metric-bottles">264 bidones/mes</b>
+              <span>Envases Retornables Recuperados</span>
+            </div>
+            <div class="roi-metric">
+              <b id="metric-km">713 km/mes</b>
+              <span>Combustible y Desgaste Ahorrado</span>
+            </div>
+            <div class="roi-metric">
+              <b id="metric-hours">84 hs/mes</b>
+              <span>Horas Administrativas Recuperadas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commercial Plans -->
+    <section class="section-pad" id="planes">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Inversión Transparente</span>
+          <h2>Planes escalables para cada etapa de tu empresa</h2>
+          <p>Sin costos ocultos. Todas las actualizaciones del sistema incluidas.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter -->
+          <div class="price-card">
+            <h3>Starter</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Para plantas en crecimiento con 1 camión de reparto.</p>
+            <div class="price-val">$ 69.000 <small>/mes</small></div>
+            <ul>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Hasta 1 camión y 500 clientes</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> App de Chofer Offline-First</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Portal de Clientes básico</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Arqueo de camión y stock diario</li>
+            </ul>
+            <a href="#contacto" class="btn-secondary" style="width: 100%; justify-content: center;">Elegir Starter</a>
+          </div>
+
+          <!-- Professional -->
+          <div class="price-card featured">
+            <span class="featured-badge">Más Elegido</span>
+            <h3>Profesional</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Para distribuidoras consolidadas de 2 a 5 camiones.</p>
+            <div class="price-val">$ 139.000 <small>/mes</small></div>
+            <ul>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Hasta 5 camiones y clientes ilimitados</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Optimizador TSP 2-Opt con ventanas horarias</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Módulo de Planta Bromatológica & BPH</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Cobro QR dinámico de Mercado Pago</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> FSM Técnico para Sanitizaciones (CAA)</li>
+            </ul>
+            <a href="#contacto" class="btn-primary" style="width: 100%; justify-content: center;">Elegir Profesional</a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="price-card">
+            <h3>Enterprise</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Para plantas industriales con flota masiva o multi-sucursal.</p>
+            <div class="price-val">A Medida</div>
+            <ul>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Camiones y sucursales ilimitadas</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Facturación electrónica AFIP masiva</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Bot de WhatsApp IA de alta concurrencia</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Onboarding in-situ y migración de datos</li>
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Soporte prioritario 24/7 y SLA garantizado</li>
+            </ul>
+            <a href="#contacto" class="btn-secondary" style="width: 100%; justify-content: center;">Consultar Enterprise</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-pad" id="faq" style="background: rgba(13, 21, 39, 0.4);">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Respuestas Claras</span>
+          <h2>Preguntas Frecuentes de Dueños de Embotelladoras</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Qué pasa si mis choferes se quedan sin señal de internet en la ruta?</span>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>AQUA está construido 100% Offline-First. La app del chofer continúa funcionando en sótanos, zonas rurales o galpones sin cobertura. Cuando el teléfono recupera señal, sincroniza automáticamente todas las entregas, cobros y remitos con el servidor central sin perder un solo dato.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Cuánto tiempo lleva migrar mis planillas de Excel actuales?</span>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>El proceso toma menos de 24 horas. Nuestro equipo técnico importa tu padrón de clientes, listas de precios, comodatos de dispensers y rutas habituales mediante nuestro importador masivo automatizado.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Se puede conectar con impresoras térmicas portátiles de cinturón?</span>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Sí. AQUA incluye un generador de bytecode ESC/POS nativo compatible con cualquier mini-impresora Bluetooth de 58mm u 80mm para emitir remitos de entrega físicos al instante en el domicilio del cliente.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Mis clientes están obligados a instalar una aplicación de la tienda?</span>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>No. El Portal 2.0 funciona como una Web App Progresiva (PWA). Los clientes ingresan directamente desde un enlace seguro en WhatsApp o navegador en menos de 2 segundos sin ocupar memoria en su celular.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Cómo funciona el cumplimiento del Código Alimentario Argentino (CAA)?</span>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>AQUA audita digitalmente los límites de cloro, ozono y sanitización semestral obligatoria de dispensers (CAA Art. 982), generando reportes de trazabilidad en PDF listos para presentar ante inspecciones de bromatología municipal o provincial.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lead Capture Section -->
+    <section class="section-pad" id="contacto">
+      <div class="container">
+        <div class="lead-cta-banner">
+          <span class="eyebrow">Diagnóstico Operativo Gratuito</span>
+          <h2>Agendá una Demostración en Vivo de AQUA 2026</h2>
+          <p style="color: var(--text-muted); max-width: 640px; margin: 0 auto;">
+            Dejanos los datos de tu planta y te mostraremos en 15 minutos cómo eliminar las planillas manuales y optimizar el reparto de tu empresa.
+          </p>
+
+          <form id="lead-form" class="lead-form-grid">
+            <div class="form-group">
+              <input type="text" id="lead-name" placeholder="Tu Nombre Completo" required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="lead-company" placeholder="Nombre de tu Embotelladora / Sifonería" required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="lead-city" placeholder="Ciudad y Provincia (ej. Córdoba, Mendoza, Bs As)" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="lead-phone" placeholder="Número de WhatsApp (ej. 351 555 1234)" required>
+            </div>
+            <div class="form-group">
+              <select id="lead-trucks">
+                <option value="1">1 Camión de Reparto</option>
+                <option value="2-3" selected>2 a 3 Camiones</option>
+                <option value="4-6">4 a 6 Camiones</option>
+                <option value="7+">Más de 7 Camiones (Flota Industrial)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-primary" style="justify-content: center; width: 100%; padding: 1rem;">
+              Solicitar Demostración por WhatsApp 🚀
+            </button>
+            <p id="form-feedback" style="font-size: 0.85rem; color: var(--accent-cyan); margin-top: 0.5rem; text-align: center;"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="no-print">
+    <div class="container">
+      <p style="font-weight: 700; color: #fff; margin-bottom: 0.5rem;">AQUA 2026 Enterprise Platform</p>
+      <p>Software de Gestión Integral para Embotelladoras de Agua, Sifonerías y Dispensers Frío-Calor.</p>
+      <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-dim);">
+        Diseñado bajo estándares de Cero Confianza, Privacidad Criptográfica y Normativa Bromatológica Nacional. © 2026 Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+</body>
+</html>
