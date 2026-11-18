@@ -11,7 +11,7 @@ import { runE2ELeadFlowTests } from './e2e_lead_flow.test.js';
 const start = performance.now();
 
 console.log('====================================================');
-console.log('🚀 Running AQUA 2026 Landing Page Test Suite (5 Capas)');
+console.log('🚀 Running AQUA Landing Page Test Suite (5 Capas)');
 console.log('====================================================\n');
 
 try {

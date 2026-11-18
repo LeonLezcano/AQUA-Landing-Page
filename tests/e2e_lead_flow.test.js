@@ -41,7 +41,7 @@ export function runE2ELeadFlowTests() {
 
   // Step 4: WhatsApp conversion trigger
   const bookingMessage = encodeURIComponent(
-    `¡Hola equipo de AQUA 2026!\n` +
+    `¡Hola equipo de AQUA!\n` +
     `Mi nombre es ${safeLead.name} de la embotelladora "${safeLead.company}" (${safeLead.city}).\n` +
     `Contamos con ${safeLead.trucks} camiones de reparto y me gustaría coordinar una demostración en vivo del sistema.`
   );

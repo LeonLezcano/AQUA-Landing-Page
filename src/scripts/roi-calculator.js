@@ -3,7 +3,7 @@
  * Models real-world plant benchmarks (TSP 2-Opt fuel optimization, admin automation, bottle loss prevention).
  */
 export const ROICalculator = {
-  // Benchmark operational constants (2026 industry standards in ARS)
+  // Benchmark operational constants (Industry standards in ARS)
   CONSTANTS: {
     BOTTLE_REPLACEMENT_COST: 6500, // Cost of 20L polycarbonate bottle in ARS
     AVG_KM_PER_ROUTE_DAY: 45, // Average km driven per truck per day

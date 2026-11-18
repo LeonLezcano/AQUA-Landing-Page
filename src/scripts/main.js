@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch {}
 
     const message = encodeURIComponent(
-      `¡Hola equipo de AQUA 2026!\n` +
+      `¡Hola equipo de AQUA!\n` +
       `Mi nombre es ${name} de la embotelladora "${company}" (${city}).\n` +
       `Contamos con ${trucks} camiones de reparto y me gustaría coordinar una demostración en vivo del sistema.\n` +
       `Plan de interés: ${plan}\n` +
@@ -222,7 +222,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 450);
   });
 
-  // 7. Register Service Worker (PWA Ready)
+  // 7. Scroll Progress Bar & Scroll Reveal Animations (Glidex Inspired)
+  const scrollProgressBar = document.getElementById('scroll-progress-bar');
+  function updateScrollProgress() {
+    if (!scrollProgressBar) return;
+    const docElem = document.documentElement;
+    const maxScroll = docElem.scrollHeight - docElem.clientHeight;
+    const scrollPercent = maxScroll > 0 ? (window.scrollY || docElem.scrollTop) / maxScroll : 0;
+    const clamped = Math.min(Math.max(scrollPercent, 0), 1);
+    scrollProgressBar.style.transform = `scaleX(${clamped})`;
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
+
+  // Activate CSS reveal behavior
+  document.documentElement.classList.add('js-reveal');
+  const revealElements = document.querySelectorAll('.reveal-blur, .reveal-up');
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      }
+    );
+
+    revealElements.forEach((el) => {
+      revealObserver.observe(el);
+    });
+  } else {
+    // Fallback: reveal all immediately if IntersectionObserver is unsupported
+    revealElements.forEach((el) => el.classList.add('revealed'));
+  }
+
+  // 8. Register Service Worker (PWA Ready)
   if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js').catch((err) => {

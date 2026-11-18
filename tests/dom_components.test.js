@@ -11,7 +11,7 @@ export function runDomComponentTests() {
   console.log('  🧪 Testing DOM Components & Semantics (Layer 3: Structure & Accessibility)...');
 
   // 1. Mandatory Brand & Head elements
-  assert.ok(htmlContent.includes('<title>AQUA 2026'), 'Document title must contain AQUA 2026');
+  assert.ok(htmlContent.includes('<title>AQUA — Plataforma Enterprise'), 'Document title must contain AQUA');
   assert.ok(htmlContent.includes('rel="manifest"'), 'PWA manifest must be referenced');
   assert.ok(htmlContent.includes('theme-color'), 'Meta theme-color must be present');
   assert.ok(htmlContent.includes('viewport'), 'Responsive viewport tag must be declared');

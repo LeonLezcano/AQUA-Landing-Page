@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aqua-landing-cache-1795003740756';
+const CACHE_NAME = 'aqua-landing-cache-1795004990774';
 const ASSETS_TO_PRECACHE = [
   '/',
   '/index.html',

@@ -1,4 +1,4 @@
-# 💧 AQUA 2026 — Landing Page Oficial
+# 💧 AQUA — Landing Page Oficial
 
 > **Plataforma Enterprise Integral para Embotelladoras de Agua, Sifonerías y Dispensers Frío-Calor.**  
 > Landing page comercial de alta conversión diseñada para captación B2B de plantas embotelladoras, fábricas de soda y distribuidoras con flota propia.

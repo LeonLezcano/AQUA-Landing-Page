@@ -1,6 +1,6 @@
 {
-  "name": "AQUA 2026 — Plataforma Enterprise para Embotelladoras de Agua",
-  "short_name": "AQUA 2026",
+  "name": "AQUA — Plataforma Enterprise para Embotelladoras de Agua",
+  "short_name": "AQUA",
   "description": "Plataforma integral de gestión operativa, logística, calidad bromatológica y facturación para plantas embotelladoras de agua y sifonerías.",
   "start_url": "/",
   "display": "standalone",

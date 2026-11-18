@@ -39,7 +39,7 @@ export function runLeadCaptureTests() {
 
   // 3. WhatsApp URI construction
   const message = encodeURIComponent(
-    `¡Hola equipo de AQUA 2026!\n` +
+    `¡Hola equipo de AQUA!\n` +
     `Mi nombre es ${safeName} de la embotelladora "${safeCompany}" (${safeCity}).\n` +
     `Contamos con ${lead.trucks} camiones de reparto y me gustaría coordinar una demostración en vivo del sistema.`
   );

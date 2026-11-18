@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AQUA 2026 — Official Landing Page Stylesheet
+   AQUA — Official Landing Page Stylesheet
    Design Standard: Impeccable Dark Luxury & Electric Cyan Glassmorphism
    ========================================================================== */
 
@@ -29,6 +29,10 @@
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 8px;
+
+  /* Glidex Apple-grade smooth easing curves */
+  --ease: cubic-bezier(.22, .61, .24, 1);
+  --ease-io: cubic-bezier(.65, 0, .35, 1);
 }
 
 *, *::before, *::after {
@@ -55,10 +59,32 @@ body {
 
 /* Typography Helpers */
 .grad-text {
-  background: var(--grad-primary);
+  background: linear-gradient(135deg, #00C2FF 0%, #0072FF 50%, #38BDF8 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: textShimmer 7s ease-in-out infinite alternate;
   font-weight: 800;
+}
+
+@keyframes textShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Scroll Progress Bar at Navbar Bottom (Glidex style) */
+.scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--grad-primary);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.7);
+  pointer-events: none;
+  z-index: 105;
 }
 
 .eyebrow {
@@ -165,11 +191,19 @@ section[id], .flow-card[id] {
   display: none;
   gap: 1.5rem;
   list-style: none;
+  white-space: nowrap;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1060px) {
   .nav-links {
     display: flex;
+  }
+}
+
+@media (min-width: 1060px) and (max-width: 1220px) {
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -234,7 +268,7 @@ section[id], .flow-card[id] {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1060px) {
   .nav-toggle {
     display: none;
   }
@@ -879,17 +913,22 @@ section[id], .flow-card[id] {
 }
 
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease), padding 0.45s var(--ease);
   padding: 0 1.5rem;
+  overflow: hidden;
   color: var(--text-muted);
   font-size: 0.9375rem;
 }
 
+.faq-answer > p {
+  min-height: 0;
+}
+
 .faq-item.open .faq-answer {
-  max-height: 200px;
-  padding: 0 1.5rem 1.25rem;
+  grid-template-rows: 1fr;
+  padding: 0.5rem 1.5rem 1.25rem;
 }
 
 /* Contact / Lead Capture Modal & CTA */
@@ -982,6 +1021,95 @@ footer {
   text-align: center;
   color: var(--text-dim);
   font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Glidex-Grade Scroll Reveals & Motion System
+   ========================================================================== */
+
+/* Numeric stability for animated counters */
+.roi-metric b {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Refined interactive card lifts */
+.problem-card, .module-card, .price-card, .ba-card, .flow-card, .roi-box {
+  transition: transform 0.45s var(--ease), border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+
+.problem-card:hover, .module-card:hover, .price-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 194, 255, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 194, 255, 0.16);
+}
+
+/* Base Reveal States when Progressive Enhancement is Active (.js-reveal) */
+.js-reveal .reveal-blur {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.85s var(--ease), transform 0.85s var(--ease), filter 0.85s var(--ease);
+  will-change: opacity, transform, filter;
+}
+
+.js-reveal .reveal-blur.revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0);
+}
+
+.js-reveal .reveal-up {
+  opacity: 0;
+  transform: translate3d(0, 38px, 0);
+  transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+  will-change: opacity, transform;
+}
+
+.js-reveal .reveal-up.revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Stagger Delays for Grid Elements */
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.16s; }
+.stagger-3 { transition-delay: 0.24s; }
+.stagger-4 { transition-delay: 0.32s; }
+.stagger-5 { transition-delay: 0.40s; }
+.stagger-6 { transition-delay: 0.48s; }
+
+/* CSS Native Scroll-Driven Animation (Baseline support) */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes glidexFadeRise {
+      entry 0% {
+        opacity: 0;
+        transform: translate3d(0, 36px, 0);
+      }
+      entry 100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal-blur,
+  .js-reveal .reveal-up {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .scroll-progress-bar {
+    display: none !important;
+  }
+  .grad-text {
+    animation: none !important;
+  }
 }
 
 /* Print Clean */

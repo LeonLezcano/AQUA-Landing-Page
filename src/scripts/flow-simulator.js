@@ -1,7 +1,7 @@
 import { Sanitizer } from '../utils/sanitizer.js';
 
 /**
- * Interactive SVG Wire & Real-Time Production Flow Simulator for AQUA 2026.
+ * Interactive SVG Wire & Real-Time Production Flow Simulator for AQUA.
  * Reconstructed & enhanced from the reverse-engineered Glidex process widget,
  * adapted to water bottling plant operations (Clients, Plant Floor, Logistics, AFIP).
  */
