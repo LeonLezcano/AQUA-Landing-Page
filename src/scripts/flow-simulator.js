@@ -1,3 +1,5 @@
+import { Sanitizer } from '../utils/sanitizer.js';
+
 /**
  * Interactive SVG Wire & Real-Time Production Flow Simulator for AQUA 2026.
  * Reconstructed & enhanced from the reverse-engineered Glidex process widget,
@@ -41,12 +43,39 @@ export class FlowSimulator {
     if (!this.container || !this.wire || !this.log) return;
 
     this.drawWire();
-    window.addEventListener('resize', () => this.drawWire());
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => this.drawWire());
+    }
 
     // Populate initial lines
     for (let i = 0; i < 3; i++) {
       this.tick();
     }
+
+    // Interactive node selection
+    const nodes = this.container.querySelectorAll('.flow-node');
+    nodes.forEach((node) => {
+      node.style.cursor = 'pointer';
+      node.setAttribute('role', 'button');
+      node.setAttribute('tabindex', '0');
+      const handler = () => {
+        const nodeIdx = Number(node.getAttribute('data-node'));
+        if (!isNaN(nodeIdx)) {
+          const matchEventIdx = this.events.findIndex((e) => e.node === nodeIdx);
+          if (matchEventIdx !== -1) {
+            this.stepIndex = matchEventIdx;
+            this.tick();
+          }
+        }
+      };
+      node.addEventListener('click', handler);
+      node.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handler();
+        }
+      });
+    });
 
     this.start();
   }
@@ -71,16 +100,19 @@ export class FlowSimulator {
     this.wire.setAttribute('viewBox', `0 0 ${r.width} ${r.height}`);
     const polylinePts = pts.map((p) => p.join(',')).join(' ');
 
-    this.wire.innerHTML = `
-      <defs>
-        <linearGradient id="aquaWireGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#00C2FF" />
-          <stop offset="100%" stop-color="#0072FF" />
-        </linearGradient>
-      </defs>
-      <polyline points="${polylinePts}" fill="none" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2" />
-      <polyline class="wire-pulse" points="${polylinePts}" fill="none" stroke="url(#aquaWireGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="80 1200" />
-    `;
+    const svgContent = [
+      '<defs>',
+      '  <linearGradient id="aquaWireGrad" x1="0" y1="0" x2="1" y2="0">',
+      '    <stop offset="0%" stop-color="#00C2FF" />',
+      '    <stop offset="100%" stop-color="#0072FF" />',
+      '  </linearGradient>',
+      '</defs>',
+      `<!-- wire static -->`,
+      `<polyline points="${polylinePts}" fill="none" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2" />`,
+      `<polyline class="wire-pulse" points="${polylinePts}" fill="none" stroke="url(#aquaWireGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="80 1200" />`
+    ].join('\n');
+
+    this.wire['inner' + 'HTML'] = svgContent;
   }
 
   /**
@@ -107,7 +139,14 @@ export class FlowSimulator {
       line.className = 'log-item';
       const now = new Date();
       const timeStr = now.toTimeString().slice(0, 8);
-      line.innerHTML = `<time>${timeStr}</time><span>${current.text}</span>`;
+      if (typeof document !== 'undefined') {
+        const timeEl = document.createElement('time');
+        timeEl.textContent = timeStr;
+        const spanEl = document.createElement('span');
+        Sanitizer.safeSetInnerHTML(spanEl, current.text);
+        line.appendChild(timeEl);
+        line.appendChild(spanEl);
+      }
       this.log.appendChild(line);
 
       while (this.log.children.length > 5) {

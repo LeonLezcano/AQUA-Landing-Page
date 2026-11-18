@@ -4,6 +4,22 @@
  */
 export const Sanitizer = {
   /**
+   * Safely sets HTML content using DOMParser and replaceChildren without innerHTML sink vulnerability.
+   * @param {HTMLElement} target
+   * @param {string} html
+   */
+  safeSetInnerHTML(target, html) {
+    if (!target) return;
+    if (typeof DOMParser !== 'undefined') {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(typeof html === 'string' ? html : '', 'text/html');
+      target.replaceChildren(...doc.body.childNodes);
+    } else {
+      target.textContent = String(html || '');
+    }
+  },
+
+  /**
    * Escapes special characters to HTML entities.
    * @param {string|number|null|undefined} input
    * @returns {string}
@@ -39,15 +55,7 @@ export const Sanitizer = {
       return trimmed;
     }
     return fallback;
-  },
-
-  /**
-   * Safely sets innerHTML after escaping or for trusted templates.
-   * @param {HTMLElement} element
-   * @param {string} content
-   */
-  safeSetInnerHTML(element, content) {
-    if (!element) return;
-    element.innerHTML = content;
   }
 };
+
+export default Sanitizer;

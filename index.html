@@ -42,7 +42,7 @@
         <span>AQUA <small class="grad-text">2026</small></span>
       </a>
 
-      <nav>
+      <nav aria-label="Navegación principal">
         <ul class="nav-links">
           <li><a href="#proceso">Cómo Funciona</a></li>
           <li><a href="#problemas">El Problema</a></li>
@@ -53,9 +53,29 @@
         </ul>
       </nav>
 
-      <a href="#contacto" class="btn-primary" data-lead-cta>Solicitar Demo</a>
+      <div class="nav-actions">
+        <a href="#contacto" class="btn-primary" data-lead-cta>Solicitar Demo</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-drawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer no-print" id="mobile-drawer" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="#proceso" class="mobile-nav-link">Cómo Funciona</a></li>
+      <li><a href="#problemas" class="mobile-nav-link">El Problema</a></li>
+      <li><a href="#modulos" class="mobile-nav-link">Módulos</a></li>
+      <li><a href="#roi" class="mobile-nav-link">Calculadora ROI</a></li>
+      <li><a href="#planes" class="mobile-nav-link">Planes</a></li>
+      <li><a href="#faq" class="mobile-nav-link">Preguntas</a></li>
+    </ul>
+    <a href="#contacto" class="btn-primary mobile-nav-link" style="width: 100%; justify-content: center; padding: 0.85rem;">Solicitar Demo</a>
+  </div>
 
   <!-- Hero Section -->
   <main>
@@ -301,7 +321,7 @@
               <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Portal de Clientes básico</li>
               <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Arqueo de camión y stock diario</li>
             </ul>
-            <a href="#contacto" class="btn-secondary" style="width: 100%; justify-content: center;">Elegir Starter</a>
+            <a href="#contacto" class="btn-secondary btn-plan-select" data-plan="Starter" style="width: 100%; justify-content: center;">Elegir Starter</a>
           </div>
 
           <!-- Professional -->
@@ -317,7 +337,7 @@
               <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Cobro QR dinámico de Mercado Pago</li>
               <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> FSM Técnico para Sanitizaciones (CAA)</li>
             </ul>
-            <a href="#contacto" class="btn-primary" style="width: 100%; justify-content: center;">Elegir Profesional</a>
+            <a href="#contacto" class="btn-primary btn-plan-select" data-plan="Profesional" style="width: 100%; justify-content: center;">Elegir Profesional</a>
           </div>
 
           <!-- Enterprise -->
@@ -332,7 +352,7 @@
               <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Onboarding in-situ y migración de datos</li>
               <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Soporte prioritario 24/7 y SLA garantizado</li>
             </ul>
-            <a href="#contacto" class="btn-secondary" style="width: 100%; justify-content: center;">Consultar Enterprise</a>
+            <a href="#contacto" class="btn-secondary btn-plan-select" data-plan="Enterprise" style="width: 100%; justify-content: center;">Consultar Enterprise</a>
           </div>
         </div>
       </div>
@@ -348,51 +368,51 @@
 
         <div class="faq-list">
           <div class="faq-item">
-            <button class="faq-question">
+            <button class="faq-question" id="faq-btn-1" aria-expanded="false" aria-controls="faq-ans-1">
               <span>¿Qué pasa si mis choferes se quedan sin señal de internet en la ruta?</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
               <p>AQUA está construido 100% Offline-First. La app del chofer continúa funcionando en sótanos, zonas rurales o galpones sin cobertura. Cuando el teléfono recupera señal, sincroniza automáticamente todas las entregas, cobros y remitos con el servidor central sin perder un solo dato.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question">
+            <button class="faq-question" id="faq-btn-2" aria-expanded="false" aria-controls="faq-ans-2">
               <span>¿Cuánto tiempo lleva migrar mis planillas de Excel actuales?</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
               <p>El proceso toma menos de 24 horas. Nuestro equipo técnico importa tu padrón de clientes, listas de precios, comodatos de dispensers y rutas habituales mediante nuestro importador masivo automatizado.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question">
+            <button class="faq-question" id="faq-btn-3" aria-expanded="false" aria-controls="faq-ans-3">
               <span>¿Se puede conectar con impresoras térmicas portátiles de cinturón?</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
               <p>Sí. AQUA incluye un generador de bytecode ESC/POS nativo compatible con cualquier mini-impresora Bluetooth de 58mm u 80mm para emitir remitos de entrega físicos al instante en el domicilio del cliente.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question">
+            <button class="faq-question" id="faq-btn-4" aria-expanded="false" aria-controls="faq-ans-4">
               <span>¿Mis clientes están obligados a instalar una aplicación de la tienda?</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
               <p>No. El Portal 2.0 funciona como una Web App Progresiva (PWA). Los clientes ingresan directamente desde un enlace seguro en WhatsApp o navegador en menos de 2 segundos sin ocupar memoria en su celular.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question">
+            <button class="faq-question" id="faq-btn-5" aria-expanded="false" aria-controls="faq-ans-5">
               <span>¿Cómo funciona el cumplimiento del Código Alimentario Argentino (CAA)?</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
               <p>AQUA audita digitalmente los límites de cloro, ozono y sanitización semestral obligatoria de dispensers (CAA Art. 982), generando reportes de trazabilidad en PDF listos para presentar ante inspecciones de bromatología municipal o provincial.</p>
             </div>
           </div>
@@ -411,20 +431,30 @@
           </p>
 
           <form id="lead-form" class="lead-form-grid">
+            <div class="selected-plan-container" id="selected-plan-box">
+              <span class="selected-plan-badge" id="selected-plan-badge">Plan Seleccionado: Profesional</span>
+            </div>
+            <input type="hidden" id="lead-plan" value="Profesional">
+
             <div class="form-group">
-              <input type="text" id="lead-name" placeholder="Tu Nombre Completo" required>
+              <label for="lead-name" class="sr-only">Tu Nombre Completo</label>
+              <input type="text" id="lead-name" placeholder="Tu Nombre Completo" aria-label="Tu Nombre Completo" required>
             </div>
             <div class="form-group">
-              <input type="text" id="lead-company" placeholder="Nombre de tu Embotelladora / Sifonería" required>
+              <label for="lead-company" class="sr-only">Nombre de tu Embotelladora / Sifonería</label>
+              <input type="text" id="lead-company" placeholder="Nombre de tu Embotelladora / Sifonería" aria-label="Nombre de tu Embotelladora / Sifonería" required>
             </div>
             <div class="form-group">
-              <input type="text" id="lead-city" placeholder="Ciudad y Provincia (ej. Córdoba, Mendoza, Bs As)" required>
+              <label for="lead-city" class="sr-only">Ciudad y Provincia</label>
+              <input type="text" id="lead-city" placeholder="Ciudad y Provincia (ej. Córdoba, Mendoza, Bs As)" aria-label="Ciudad y Provincia" required>
             </div>
             <div class="form-group">
-              <input type="tel" id="lead-phone" placeholder="Número de WhatsApp (ej. 351 555 1234)" required>
+              <label for="lead-phone" class="sr-only">Número de WhatsApp</label>
+              <input type="tel" id="lead-phone" placeholder="Número de WhatsApp (ej. 351 555 1234)" aria-label="Número de WhatsApp" pattern="[0-9\+\-\s\(\)]{8,20}" minlength="8" required>
             </div>
             <div class="form-group">
-              <select id="lead-trucks">
+              <label for="lead-trucks" class="sr-only">Cantidad de Camiones de Reparto</label>
+              <select id="lead-trucks" aria-label="Cantidad de Camiones de Reparto">
                 <option value="1">1 Camión de Reparto</option>
                 <option value="2-3" selected>2 a 3 Camiones</option>
                 <option value="4-6">4 a 6 Camiones</option>
@@ -434,7 +464,7 @@
             <button type="submit" class="btn-primary" style="justify-content: center; width: 100%; padding: 1rem;">
               Solicitar Demostración por WhatsApp 🚀
             </button>
-            <p id="form-feedback" style="font-size: 0.85rem; color: var(--accent-cyan); margin-top: 0.5rem; text-align: center;"></p>
+            <div id="form-feedback" style="font-size: 0.9rem; color: var(--accent-cyan); margin-top: 0.75rem; text-align: center;"></div>
           </form>
         </div>
       </div>
